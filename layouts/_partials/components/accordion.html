@@ -1,0 +1,20 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+{{ $name := cond (eq $params.exclusive true) (partial "utils/uid") "" }}
+
+<div class="accordion">
+  {{ range $params.details }}
+    <details
+      {{ if eq .open true}} open{{ end }}
+      {{ with $name }} name="{{ . }}"{{ end }}
+      >
+      {{ with .summary }}
+        <summary>{{ . }}</summary>
+      {{ end }}
+      {{ with .content }}
+        {{ . | $page.RenderString (dict "display" "block") }}
+      {{ end }}
+    </details>
+  {{ end }}
+</div>

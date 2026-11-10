@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.Title }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/@knadh/oat/oat.min.css">
+    <script src="https://unpkg.com/@knadh/oat/oat.min.js" defer></script>
+    <style>
+      .main-menu {
+        padding: var(--space-3) var(--space-6);
+        background-color: var(--primary);
+      }
+      .main-menu ul {
+        display: flex;
+        gap: var(--space-3);
+        list-style-type: none;
+        color: var(--background);
+      }
+      .main-menu ul,
+      .main-menu li {
+        margin: 0;
+        padding: 0;
+      }
+      .main-menu a {
+        color: var(--background);
+      }
+      .main-header {
+        padding: 6rem var(--space-6);
+        background-color: var(--primary);
+        color: var(--background);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        text-align: center;
+      }
+      .main-header.condensed {
+        padding: var(--space-6);
+      }
+      .main-header > * {
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+      .main-content {
+        padding: var(--space-6);
+      }
+      .cards .card {
+        flex-grow: 2;
+      }
+    </style>
+  </head>
+  <body>
+    {{ partial "main-menu" . }}
+    {{ block "main" . }}
+    {{ end }}
+  </body>
+</html>

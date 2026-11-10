@@ -1,0 +1,7 @@
+main:
+  - name: Home
+    pageRef: /
+    weight: 1
+  - name: Blog
+    pageRef: /blog/
+    weight: 2

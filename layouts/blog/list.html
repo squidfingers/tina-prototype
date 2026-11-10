@@ -1,0 +1,13 @@
+{{ define "main" }}
+  {{ partial "main-header" . }}
+  {{ with partial "main-content" . }}
+    {{ range sort .RegularPages "Date" "desc" }}
+      <article>
+        <h2>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ .Summary }}
+      </article>
+    {{ end }}
+  {{ end }}
+{{ end }}

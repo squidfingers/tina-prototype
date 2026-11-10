@@ -1,0 +1,19 @@
+{
+  "name": "tina-prototype",
+  "version": "1.0.0",
+  "description": "Hugo site with TinaCMS admin",
+  "scripts": {
+    "dev": "tinacms dev -c \"hugo server -D -p 1313\"",
+    "build": "tinacms build && hugo --minify",
+    "build:local": "tinacms build --local --skip-cloud-checks && hugo --minify"
+  },
+  "dependencies": {
+    "@tinacms/cli": "^4.0.5",
+    "tinacms": "^3.15.2"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "esbuild@0.28.2": true
+  },
+  "private": true
+}

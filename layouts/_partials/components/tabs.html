@@ -1,0 +1,19 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+<ot-tabs>
+  <div role="tablist">
+    {{ range $params.tablist }}
+      {{ with .tab }}
+        <button role="tab">{{ . }}</button>
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ range $params.tablist }}
+    <div role="tabpanel">
+      {{ with .tabpanel }}
+        {{ . | $page.RenderString (dict "display" "block") }}
+      {{ end }}
+    </div>
+  {{ end }}
+</ot-tabs>

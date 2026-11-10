@@ -1,0 +1,15 @@
+{{ with .Params.components }}
+  <div class="flex flex-col gap-4">
+    {{ range . }}
+      {{ $type := .type }}
+      {{ $partial := printf "components/%s" $type }}
+      {{ with try (partial $partial (dict "page" $ "params" .)) }}
+        {{ with .Err }}
+          {{ warnf "%s" .Err }}
+        {{ else with .Value }}
+          {{ . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

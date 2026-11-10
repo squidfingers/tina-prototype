@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ partial "main-header" . }}
+  {{ with partial "main-content" . }}
+    {{ partial "components" . }}
+  {{ end }}
+{{ end }}

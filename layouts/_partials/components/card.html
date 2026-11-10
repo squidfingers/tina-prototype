@@ -1,0 +1,25 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+<article class="card">
+  {{ if or $params.heading  $params.description }}
+    <header>
+      {{ with $params.heading }}
+        <h3>{{ . }}</h3>
+      {{ end }}
+      {{ with $params.description }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </header>
+  {{ end }}
+  {{ with $params.content }}
+    {{ . | $page.RenderString (dict "display" "block") }}
+  {{ end }}
+  {{ with $params.footer }}
+    <footer class="flex gap-2 mt-4">
+      {{ range . }}
+        {{ partial "components/button" (dict "page" $page "params" .button) }}
+      {{ end }}
+    </footer>
+  {{ end }}
+</article>

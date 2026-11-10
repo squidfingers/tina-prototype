@@ -1,0 +1,7 @@
+public
+resources
+.DS_Store
+.hugo_build.lock
+node_modules
+static/admin
+tina/__generated__

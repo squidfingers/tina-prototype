@@ -1,0 +1,8 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+<div class="text">
+  {{ with $params.content }}
+    {{ . | $page.RenderString (dict "display" "block") }}
+  {{ end }}
+</div>

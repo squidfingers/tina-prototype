@@ -1,0 +1,25 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+{{ $variant := "" }}
+{{ if in (slice "primary" "secondary" "danger") $params.variant }}
+  {{ $variant = $params.variant }}
+{{ end }}
+
+{{ $class := slice "button" }}
+{{ if in (slice "outline" "ghost") $params.style }}
+   {{ $class = $class | append $params.style }}
+{{ end }}
+{{ if in (slice "small" "large") $params.size }}
+  {{ $class = $class | append $params.size }}
+{{ end }}
+{{ $class = delimit $class " " }}
+
+<a
+  href="{{ $params.url }}"
+  class="{{ $class }}"
+  {{ with $variant }} data-variant="{{ . }}"{{ end }}
+  {{ if hasPrefix $params.url "http" }} target="_blank" rel="noopener"{{ end }}
+  >
+  {{ $params.text }}
+</a>

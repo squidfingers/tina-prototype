@@ -1,0 +1,15 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+{{ $variant := "" }}
+{{ if in (slice "success" "warning" "error") $params.variant }}
+  {{ $variant = $params.variant }}
+{{ end }}
+
+<div role="alert"
+  {{ with $variant }} data-variant="{{ . }}"{{ end }}
+  >
+  {{ with $params.content }}
+    {{ . | $page.RenderString (dict "display" "block") }}
+  {{ end }}
+</div>

@@ -1,0 +1,8 @@
+{{ $page := .page }}
+{{ $params := .params }}
+
+<div class="cards flex gap-4">
+  {{ range $params.cardlist }}
+    {{ partial "components/card" (dict "page" $page "params" .card) }}
+  {{ end }}
+</div>

@@ -1,0 +1,20 @@
+{{ with .Params.pageHeader }}
+  {{ if eq .enabled true }}
+    {{ $class := slice "main-header" }}
+    {{ if eq .condensed true }}
+      {{ $class = $class | append "condensed" }}
+    {{ end }}
+    {{ $class = delimit $class " " }}
+    <header
+      class="{{ $class }}"
+      {{ with .image }} style="background-image:url({{ . }})"{{ end }}
+      >
+      {{ with .heading }}
+        <h1>{{ . }}</h1>
+      {{ end }}
+      {{ with .subheading }}
+        <h4>{{ . }}</h4>
+      {{ end }}
+    </header>
+  {{ end }}
+{{ end }}
