@@ -8,6 +8,10 @@ params:
     subheading: This is a subheading.
     image: /media/image.jpg
   components:
+    - variant: success
+      content: |
+        **Success!** Your changes have been saved by Tina.
+      type: alert
     - level: '2'
       text: Requirements
       type: heading
@@ -24,10 +28,6 @@ params:
           content: |
             Requires knowledge of HTML, CSS, JavaScript, accessibility, web performance, privacy, security, and internationalization, as well as a dislike of broccoli.
       type: accordion
-    - variant: warning
-      content: |
-        **Warning!** Your changes have been saved by Tina.
-      type: alert
     - cardlist:
         - card:
             heading: Card 1
