@@ -55,7 +55,8 @@ params:
                   text: Learn more
                   url: /
                   style: outline
-                  variant: primary
+                  variant: danger
+                  size: large
       type: cards
     - tablist:
         - tab: Account
@@ -108,3 +109,4 @@ params:
         3. Ordered list item 3
       type: content
 ---
+
